@@ -20,7 +20,7 @@ Open Test Browser
     # 3. Add Arguments for Stability and Headless Mode
     Call Method    ${chrome_options}    add_argument    --ignore-certificate-errors
     Call Method    ${chrome_options}    add_argument    --ignore-ssl-errors
- #   Call Method    ${chrome_options}    add_argument    --headless
+    Call Method    ${chrome_options}    add_argument    --headless
     Call Method    ${chrome_options}    add_argument    --no-sandbox
     Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
     Call Method    ${chrome_options}    add_argument    --disable-gpu
