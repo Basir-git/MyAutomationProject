@@ -1,0 +1,7 @@
+--pycache--/
+*.pyc
+.idea/
+venv/
+log.html
+report.html
+output.xml

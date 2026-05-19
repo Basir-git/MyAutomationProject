@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.13.3 on win32)" generated="2026-05-12T21:49:39.120436" rpa="false" schemaversion="5">
+<suite id="s1" name="Central Robot Project" source="C:\Users\DELL\Central_Robot_Project">
+<suite id="s1-s1" name="Testcases" source="C:\Users\DELL\Central_Robot_Project\Testcases">
+<suite id="s1-s1-s1" name="E2E" source="C:\Users\DELL\Central_Robot_Project\Testcases\E2E.robot">
+<test id="s1-s1-s1-t1" name="TC01 Launch Browser" line="14">
+<kw name="Open Test Browser" owner="browserActions" type="SETUP">
+<if>
+<branch type="IF" condition="'${BROWSER}' == 'Chrome'">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-05-12T21:49:39.928718" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000020D0CC5AE40&gt;</msg>
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-05-12T21:49:39.927276" elapsed="0.001783"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-05-12T21:49:39.932532" level="INFO">${prefs} = {'profile.content_settings.exceptions.local_network_access.*.setting': 1}</msg>
+<var>${prefs}</var>
+<arg>profile.content_settings.exceptions.local_network_access.*.setting=${1}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-05-12T21:49:39.930036" elapsed="0.002915"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-05-12T21:49:39.933792" elapsed="0.001681"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--ignore-certificate-errors</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-05-12T21:49:39.936459" elapsed="0.001356"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--ignore-ssl-errors</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-05-12T21:49:39.938227" elapsed="0.001150"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-05-12T21:49:39.940203" elapsed="0.002544"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-05-12T21:49:39.943465" elapsed="0.001495"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-05-12T21:49:39.945386" elapsed="0.001764"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-software-rasterizer</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-05-12T21:49:39.947835" elapsed="0.001627"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size\=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-05-12T21:49:39.950198" elapsed="0.001631"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2026-05-12T21:49:39.953585" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2026-05-12T21:49:39.952488" elapsed="3.516902"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-12T21:49:43.471381" level="INFO">Opening url 'https://www.google.com/'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-12T21:49:43.470209" elapsed="4.120319"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-12T21:49:47.591055" elapsed="0.202379"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>10 seconds</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-05-12T21:49:47.794173" elapsed="0.006598"/>
+</kw>
+<status status="PASS" start="2026-05-12T21:49:39.925618" elapsed="7.875472"/>
+</branch>
+<branch type="ELSE IF" condition="'${BROWSER}' == 'Edge'">
+<kw name="Evaluate" owner="BuiltIn">
+<var>${edge_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.802174" elapsed="0.000614"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>${prefs}</var>
+<arg>profile.content_settings.exceptions.local_network_access.*.setting=${1}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.803704" elapsed="0.000722"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${edge_options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.805105" elapsed="0.000646"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${edge_options}</arg>
+<arg>add_argument</arg>
+<arg>--ignore-certificate-errors</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.806519" elapsed="0.000672"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${edge_options}</arg>
+<arg>add_argument</arg>
+<arg>--ignore-ssl-errors</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.807834" elapsed="0.000647"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${edge_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.809147" elapsed="0.000677"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${edge_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.810493" elapsed="0.000694"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${edge_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.811833" elapsed="0.001251"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${edge_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-software-rasterizer</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.814793" elapsed="0.000820"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${edge_options}</arg>
+<arg>add_argument</arg>
+<arg>--window-size=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.816259" elapsed="0.000619"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>options=${edge_options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.817922" elapsed="0.000650"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.819190" elapsed="0.000612"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.820449" elapsed="0.000624"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>10 seconds</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="NOT RUN" start="2026-05-12T21:49:47.822453" elapsed="0.000577"/>
+</kw>
+<status status="NOT RUN" start="2026-05-12T21:49:47.801347" elapsed="0.021920"/>
+</branch>
+<status status="PASS" start="2026-05-12T21:49:39.925541" elapsed="7.897888"/>
+</if>
+<status status="PASS" start="2026-05-12T21:49:39.924553" elapsed="7.899051"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-12T21:49:57.826170" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-12T21:49:47.824381" elapsed="10.002304"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Browser Launched.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-05-12T21:49:57.827822" elapsed="0.002877"/>
+</kw>
+<kw name="Close Test Browser" owner="browserActions" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-12T21:49:57.833067" elapsed="3.996634"/>
+</kw>
+<doc>Closes The Browser</doc>
+<status status="PASS" start="2026-05-12T21:49:57.832004" elapsed="3.998521"/>
+</kw>
+<status status="PASS" start="2026-05-12T21:49:39.914167" elapsed="21.917339"/>
+</test>
+<status status="PASS" start="2026-05-12T21:49:39.259570" elapsed="22.592761"/>
+</suite>
+<status status="PASS" start="2026-05-12T21:49:39.242434" elapsed="22.619903"/>
+</suite>
+<status status="PASS" start="2026-05-12T21:49:39.137323" elapsed="22.746026"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Central Robot Project" id="s1" pass="1" fail="0" skip="0">Central Robot Project</stat>
+<stat name="Testcases" id="s1-s1" pass="1" fail="0" skip="0">Central Robot Project.Testcases</stat>
+<stat name="E2E" id="s1-s1-s1" pass="1" fail="0" skip="0">Central Robot Project.Testcases.E2E</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
